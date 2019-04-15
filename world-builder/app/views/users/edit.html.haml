@@ -1,0 +1,9 @@
+%h2 Edit User
+
+= form_tag user_path(@user), :method => :put do
+
+    = label :user, :name, 'Name'
+    = text_field :user, 'name'
+
+    = submit_tag 'Save Changes'
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'

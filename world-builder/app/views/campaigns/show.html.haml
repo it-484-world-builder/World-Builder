@@ -2,15 +2,22 @@
 
 %ul#details
   %li
-    Name:
-    = @campaign.name
+    GM:
+    = @campaign.user.name
+  
+  %li
+    World ID:
+    = @campaign.world.name
+    
   %li
     Start Date:
     = @campaign.created_at.strftime("%B %d, %Y")
 
-%h3 Description:
+%h3 Active Players:
 
-%p#description= @campaign.name
-%p#description= 'description of campaign, world it takes place in, time period etc.'
+%div#description= 'this will show a list of all the characters that are active in a campaign aswell as their respective users'
+%div#description= '--- EXAMPLE ---'
+%div#description= 'Character Name --- Character Description --- User'
+%div#description= 'Varus Oakenheal -- Wood Elf, Ranger -- Jonny'
 
-= link_to 'Back to campaign list', campaigns_path
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'
