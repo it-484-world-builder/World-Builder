@@ -3,14 +3,25 @@
 %table#campaigns
   %thead
     %tr
-      %th Campaign Name
+      %th Select a Campaign for More Info
       /%th Location Description
       /%th Location Notes
-      %th More Info
+      %th Edit Campaign Details
   %tbody
     - @campaigns.each do |campaign|
       %tr
-        %td= campaign.name
+        %td= link_to "#{campaign.name}", campaign_path(campaign)
         /%td= movie.rating
         /%td= movie.release_date
-        %td= link_to "More about #{campaign.name}", campaign_path(campaign)
+        %td= link_to "Edit #{campaign.name}", edit_campaign_path(campaign)
+    
+%p
+  = link_to 'Create New Campaign', new_campaign_path, :class => "button"
+%p
+  = link_to 'Create New World', new_world_path, :class => "button"
+%p
+  = link_to 'Create New User', new_user_path, :class => "button"
+%p
+  = link_to 'View Users', users_path, :class => "button"
+%p
+  = link_to 'View Worlds', worlds_path, :class => "button"
