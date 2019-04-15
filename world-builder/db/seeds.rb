@@ -22,6 +22,7 @@ more_campaigns.each do |campaign|
 more_worlds = [
   {:name => 'World 1', :description => 'cool world full of fun stuff'},
   {:name => 'World 2', :description => 'cooler world full of even more fun stuff'},
+  {:name => 'World 3', :description => 'coolest world full of the most fun stuff'},
 ]
 
 more_worlds.each do |world|
