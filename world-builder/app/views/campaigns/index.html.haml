@@ -1,0 +1,16 @@
+%h1 Welcome to World Builder
+
+%table#campaigns
+  %thead
+    %tr
+      %th Campaign Name
+      /%th Location Description
+      /%th Location Notes
+      %th More Info
+  %tbody
+    - @campaigns.each do |campaign|
+      %tr
+        %td= campaign.name
+        /%td= movie.rating
+        /%td= movie.release_date
+        %td= link_to "More about #{campaign.name}", campaign_path(campaign)

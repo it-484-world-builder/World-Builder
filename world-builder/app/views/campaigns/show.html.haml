@@ -1,0 +1,16 @@
+%h2 Details about #{@campaign.name}
+
+%ul#details
+  %li
+    Name:
+    = @campaign.name
+  %li
+    Start Date:
+    = @campaign.created_at.strftime("%B %d, %Y")
+
+%h3 Description:
+
+%p#description= @campaign.name
+%p#description= 'description of campaign, world it takes place in, time period etc.'
+
+= link_to 'Back to campaign list', campaigns_path
