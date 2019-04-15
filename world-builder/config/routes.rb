@@ -54,9 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :campaigns
-  resources :users
-  resources :worlds
   root :to => redirect('/campaigns')
-  
-  
 end
