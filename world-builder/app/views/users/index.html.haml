@@ -1,0 +1,12 @@
+%h1 All Users
+
+%table#users
+  %thead
+    %tr
+      %th User Name
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'
