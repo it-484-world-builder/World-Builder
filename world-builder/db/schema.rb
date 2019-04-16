@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190414192201) do
+ActiveRecord::Schema.define(version: 20190405235848) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "name"
@@ -51,10 +51,6 @@ ActiveRecord::Schema.define(version: 20190414192201) do
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "npcs", force: :cascade do |t|
@@ -65,10 +61,6 @@ ActiveRecord::Schema.define(version: 20190414192201) do
     t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -87,8 +79,8 @@ ActiveRecord::Schema.define(version: 20190414192201) do
   create_table "worlds", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.text     "gm_notes"
-    t.text     "character_notes"
+    t.text     "gm_note"
+    t.text     "character_note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
