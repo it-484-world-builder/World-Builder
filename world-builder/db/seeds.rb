@@ -40,3 +40,15 @@ more_users = [
 more_users.each do |user|
   User.create!(user)
   end
+
+more_npcs = [
+  {:name => 'Shopkeeper'},
+  {:name => 'Knight'},
+  {:name => 'Bard'},
+  {:name => 'Warlock'},
+  {:name => 'Sorcerer'}
+]
+
+more_npcs.each do |npc|
+  Npc.create!(npc)
+  end

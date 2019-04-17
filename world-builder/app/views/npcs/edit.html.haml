@@ -1,0 +1,19 @@
+%h2 Edit #{@npc.name}
+
+= form_tag npc_path(@npc), :method => :put do
+
+  = label :npc, :name, 'Name'
+  = text_field :npc, :name
+
+  = label :npc, :description, 'Description'
+  = text_field :npc, :description
+ 
+  = label :npc, :gm_note, 'GM Note'
+  = text_field :npc, :gm_note
+  
+  = label :npc, :character_note, 'Character Note'
+  = text_field :npc, :character_note
+  
+  = submit_tag 'Save Changes'
+  
+= link_to "Back to #{@npc.name} Details", npc_path(@npc), :class => 'button'

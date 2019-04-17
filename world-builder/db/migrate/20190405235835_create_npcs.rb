@@ -4,7 +4,7 @@ class CreateNpcs < ActiveRecord::Migration
       t.string 'name'
       t.text 'description'
       t.text 'gm_note'
-      t.text 'player_note'
+      t.text 'character_note'
       t.references 'location'
       t.timestamps
     end
