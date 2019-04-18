@@ -14,7 +14,7 @@ class NpcsController < ApplicationController
     end 
 
     def npc_params
-        params.require(:npc).permit(:name,:description,:gm_note,:character_note)
+        params.require(:npc).permit(:name,:description,:gm_note,:player_note)
     end
 
     def create

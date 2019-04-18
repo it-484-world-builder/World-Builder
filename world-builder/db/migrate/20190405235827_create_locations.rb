@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string 'name'
       t.text 'description'
       t.text 'gm_note'
-      t.text 'character_note'
+      t.text 'player_note'
       t.references 'world'
       t.references 'tag'
       t.timestamps
