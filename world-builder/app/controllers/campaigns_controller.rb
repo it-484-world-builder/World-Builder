@@ -1,4 +1,7 @@
 class CampaignsController < ApplicationController
+   #before_action :correct_user, only: [:edit, :update, :destroy]
+   before_action :authenticate_user!
+   
     def index
         @campaigns = Campaign.all
     end
@@ -44,5 +47,11 @@ class CampaignsController < ApplicationController
         @campaign.destroy
         flash[:notice] = "Campaign '#{@campaign.name}' deleted."
         redirect_to campaign_path
+    end
+    
+    # define the current and correct user 
+    def correct_user
+        #@mycampaign = current_user.campaigns.find_by(id: params[:id])
+        #redirect_to campaigns_path, notice: "Not Authorized to edit this Campaign" if @campaign.nil?
     end
 end

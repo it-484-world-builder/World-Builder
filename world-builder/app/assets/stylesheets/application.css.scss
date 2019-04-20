@@ -1,6 +1,5 @@
 /* Simple CSS styling for RottenPotatoes app */
 /* Add these lines to app/assets/stylesheets/application.css */
-
 html, body {
   margin: 0;
   padding: 0;
@@ -51,6 +50,41 @@ table#campaigns th {
 table#campaigns th, table#campaigns td {
   padding: 4px;
   text-align: center;
+  
+}
+
+table#worlds {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#worlds th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#worlds th, table#worlds td {
+  padding: 4px;
+  text-align: center;
+  
+}
+
+table#users {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#users th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#users th, table#users td {
+  padding: 4px;
+  text-align: center;
+  
 }
 #notice, #warning {
   background: rosybrown;
@@ -79,3 +113,6 @@ form label {
 p {
   display: inline;
 }
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
