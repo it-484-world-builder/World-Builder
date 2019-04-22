@@ -11,6 +11,6 @@
     = label :campaign, :user_id, 'Select a GM for your Campaign'
     = collection_select(:campaign, :user_name, User.all, :name, :name, prompt: true)
     
-
+    = current_user.id
     = submit_tag 'Save Changes'
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'

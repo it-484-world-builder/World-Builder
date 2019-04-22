@@ -1,4 +1,6 @@
 class WorldsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @worlds = World.all
     end
