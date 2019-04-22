@@ -1,0 +1,12 @@
+%h2 Create New Tag
+
+= form_tag tags_path, :method => :post do
+    
+    = label :tag, :name, 'Name'
+    = text_field :tag, :name
+    
+    =label :tag, :rank, 'rank'
+    = number_field :tag, :rank
+
+    = submit_tag 'Save Changes'
+= link_to 'Back to Tags', tags_path, :class => 'button'
