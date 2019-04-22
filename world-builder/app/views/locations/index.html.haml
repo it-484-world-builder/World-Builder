@@ -15,7 +15,7 @@
       %tr
         %td= location.name
         %td= location.created_at
-        %td= link_to "More about#{location.name}", location_path(location)
+        %td= link_to "More about #{location.name}", location_path(location)
         %td= link_to "Edit #{location.name}", edit_location_path(location)
 
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'
