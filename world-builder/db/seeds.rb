@@ -113,4 +113,3 @@ more_connections = [
 more_connections.each do |connection|
     Connection.create (connection)
     end
-
