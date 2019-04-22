@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   # root :to => redirect("campaigns#index")
   resources :tags
   resources :locations
-  root :to => redirect('/campaigns')
+  #root :to => redirect('/campaigns')
 
   
   
