@@ -1,0 +1,20 @@
+%h2 Edit #{@location.name}
+
+= form_tag location_path(@location), :method => :put do
+
+  = label :location, :name, 'Name'
+  = text_field :location, :name
+
+  = label :location, :description, 'Description'
+  = text_field :location, :description
+ 
+  = label :location, :gm_note, 'GM Note'
+  = text_field :location, :gm_note
+  
+  = label :location, :world_id, 'Select a World for your Location'
+  = collection_select(:location, :world_id,World.all,:name,:name,prompt:true)
+  
+
+  
+  = submit_tag 'Save Changes'
+= link_to 'Back to campaign list', :class => 'button'

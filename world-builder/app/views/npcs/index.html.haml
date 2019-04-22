@@ -1,0 +1,16 @@
+%h1 All NPCs
+
+%table#npcs
+  %thead
+    %tr
+      %th NPC Name
+      %th Date Created
+  %tbody
+    - @npcs.each do |npc|
+      %tr
+        %td= link_to "#{npc.name}", npc_path(npc)
+        %td= npc.created_at
+%p
+  = link_to 'Back to campaign list', campaigns_path, :class => 'button'
+%p
+  = link_to 'Create New NPC', new_npc_path, :class => "button"

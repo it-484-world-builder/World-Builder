@@ -1,0 +1,21 @@
+%h1 All Locations
+
+
+%p
+  = link_to 'Create New location', new_location_path, :class => "button"
+%table#locations
+  %thead
+    %tr
+      %th Location Name
+      %th Date Created
+      %th More Info
+      %th Edit Location
+  %tbody
+    - @locations.each do |location|
+      %tr
+        %td= location.name
+        %td= location.created_at
+        %td= link_to "More about #{location.name}", location_path(location)
+        %td= link_to "Edit #{location.name}", edit_location_path(location)
+
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'

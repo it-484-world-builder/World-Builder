@@ -1,0 +1,15 @@
+%h1 All Tags
+
+%p
+  = link_to 'Create New Tag', new_tag_path, :class => "button"
+%table#tags
+  %thead
+    %tr
+      %th Tag Name
+
+  %tbody
+    - @tags.each do |tag|
+      %tr
+        %td= tag.name
+        %td= tag.rank
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'

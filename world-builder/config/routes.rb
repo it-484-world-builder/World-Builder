@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,10 +58,18 @@ Rails.application.routes.draw do
   #root "compains#index"
   get "campaigns/index"
   root "campaigns#index"
+
+  
+
   resources :campaigns
+  resources :npcs
   resources :users
   resources :worlds
   # root :to => redirect("campaigns#index")
+  resources :tags
+  resources :locations
+  root :to => redirect('/campaigns')
+
   
   
 end
