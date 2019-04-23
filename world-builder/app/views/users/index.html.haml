@@ -4,9 +4,11 @@
   %thead
     %tr
       %th User Name
+      %th Email
 
   %tbody
     - @users.each do |user|
       %tr
         %td= user.name
+        %td= user.email
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'
