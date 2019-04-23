@@ -32,15 +32,6 @@ more_campaigns.each do |campaign|
     end
 
 more_users = [
-    {:name => 'Jonny'},
-    {:name => 'Eric'},
-    {:name => 'Anthony'},
-    {:name => 'Leo'},
-    {:name => 'Mustafe'},
-    { :name => 'Bob'},
-    { :name => 'Susan'},
-    { :name => 'Dan'}
-
     ]
     
 more_users.each do |user|
