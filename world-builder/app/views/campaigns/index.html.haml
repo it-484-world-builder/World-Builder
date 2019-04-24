@@ -1,18 +1,27 @@
-
-%table#campaigns
-  %thead
-    %tr
-      %th Select a Campaign for More Info
-      /%th Location Description
-      /%th Location Notes
-      %th Edit Campaign Details
-  %tbody
-    - @campaigns.each do |campaign|
-      %tr
-        %td= link_to "#{campaign.name}", campaign_path(campaign)
-        /%td= movie.rating
-        /%td= movie.release_date
-        %td= link_to "Edit #{campaign.name}", edit_campaign_path(campaign)
+#content
+  .right.column
+    %table#campaigns
+      %thead
+        %tr
+          %th Your Campaigns
+          %th Edit Campaign Details
+      %tbody
+        - @campaigns.where(:user_id => current_user.id).each do |campaign|
+          %tr
+            %td= link_to "#{campaign.name}", campaign_path(campaign)
+            %td= link_to "Edit #{campaign.name}", edit_campaign_path(campaign)
+            %end
+  .left.column
+    %table#campaigns
+      %thead
+        %tr
+          %th Select a Campaign
+          
+      %tbody
+        - @campaigns.each do |campaign|
+          %tr
+            %td= link_to "#{campaign.name}", campaign_path(campaign)
+           
     
 %p
   = link_to 'Create New Campaign', new_campaign_path, :class => "button"

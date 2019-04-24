@@ -41,6 +41,7 @@ table#campaigns {
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid black;
+  //display: inline;
 }
 table#campaigns th {
   border: 2px solid white;
@@ -136,5 +137,18 @@ p {
   display: inline;
 }
 
+.left.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
+  
+.right.column {
+  float: right;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
 @import "bootstrap-sprockets";
 @import "bootstrap";

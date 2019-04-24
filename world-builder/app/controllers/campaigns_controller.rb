@@ -4,6 +4,8 @@ class CampaignsController < ApplicationController
    
     def index
         @campaigns = Campaign.all
+        
+        @userCampaigns = Campaign.where("user_id = User.current_user.id")
     end
     def show
         id = params[:id] # retrieve movie ID from URI route

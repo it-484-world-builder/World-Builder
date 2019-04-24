@@ -39,8 +39,6 @@ more_users.each do |user|
     end
 
 more_characters = [
-    { :name => 'Aaragon', :user_id =>7 },
-    { :name => 'Puff', :user_id =>6  }
 ]
 
 more_characters.each do |character|
