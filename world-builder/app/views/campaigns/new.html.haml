@@ -10,14 +10,6 @@
     
     = label :campaign, :user_id, 'Select a GM for your Campaign'
     = collection_select(:campaign, :user_name, User.all, :name, :name, prompt: true)
-    
-    = label :campaign, :user_id, 'Add players to your campaign'
-    = collection_select(:user_campaigns, :user_name, User.all, :name, :name, prompt: true)
-    
-    - @users.each do |user|
-        = check_box_tag(:user_campaigns, :user_name, User.all, :name, :name, prompt: true)
-        %end
-    
-    = current_user.id
+
     = submit_tag 'Save Changes'
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'
