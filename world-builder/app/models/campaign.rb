@@ -1,7 +1,7 @@
 class Campaign < ActiveRecord::Base
     belongs_to :user
     belongs_to :world
-    has_many :character_campaigns
+    has_many :user_campaigns
     
     # setters and getters for world foreign key
     def world_name=(name)
