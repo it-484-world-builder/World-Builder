@@ -18,7 +18,7 @@ more_worlds.each do |world|
     end
 
 more_campaigns = [
-    {:name =>'Curse of Strahd',  :user_id => 8, :world_id => 4},
+    {:name =>'Curse of Strahd',  :user_id => 1, :world_id => 4},
     {:name => 'Jonny\'s Campaign', :world_id => 1, :user_id => 1},
     {:name => 'Eric\'s Campaign', :world_id => 2, :user_id => 2},
     {:name => 'Anthony\'s Campaign', :world_id => 1, :user_id => 3},
