@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   root "campaigns#index"
 
   
-
+  resources :user_campaigns
   resources :campaigns
   resources :npcs
   resources :users

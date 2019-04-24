@@ -21,20 +21,6 @@ ActiveRecord::Schema.define(version: 20190419052723) do
     t.datetime "updated_at"
   end
 
-  create_table "character_campaigns", force: :cascade do |t|
-    t.integer  "character_id"
-    t.integer  "campaign_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "characters", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "connections", force: :cascade do |t|
     t.integer  "parent_location_id"
     t.integer  "child_location_id"
@@ -66,6 +52,13 @@ ActiveRecord::Schema.define(version: 20190419052723) do
   create_table "tags", force: :cascade do |t|
     t.text     "name"
     t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_campaigns", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "campaign_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

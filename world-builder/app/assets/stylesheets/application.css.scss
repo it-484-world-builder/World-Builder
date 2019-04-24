@@ -41,6 +41,7 @@ table#campaigns {
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid black;
+  //display: inline;
 }
 table#campaigns th {
   border: 2px solid white;
@@ -52,6 +53,25 @@ table#campaigns th, table#campaigns td {
   text-align: center;
   
 }
+
+table#user_campaigns {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+  //display: inline;
+}
+table#user_campaigns th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#user_campaigns th, table#user_campaigns td {
+  padding: 4px;
+  text-align: center;
+  
+}
+
 
 table#worlds {
   margin: 10px;
@@ -136,5 +156,18 @@ p {
   display: inline;
 }
 
+.left.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
+  
+.right.column {
+  float: right;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
 @import "bootstrap-sprockets";
 @import "bootstrap";

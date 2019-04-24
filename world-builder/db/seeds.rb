@@ -18,7 +18,7 @@ more_worlds.each do |world|
     end
 
 more_campaigns = [
-    {:name =>'Curse of Strahd',  :user_id => 8, :world_id => 4},
+    {:name =>'Curse of Strahd',  :user_id => 1, :world_id => 4},
     {:name => 'Jonny\'s Campaign', :world_id => 1, :user_id => 1},
     {:name => 'Eric\'s Campaign', :world_id => 2, :user_id => 2},
     {:name => 'Anthony\'s Campaign', :world_id => 1, :user_id => 3},
@@ -38,13 +38,22 @@ more_users.each do |user|
     User.create!(user)    
     end
 
-more_characters = [
-    { :name => 'Aaragon', :user_id =>7 },
-    { :name => 'Puff', :user_id =>6  }
+more_user_campaigns = [
+    {:user_id => 1, :campaign_id => 1},
+    {:user_id => 2, :campaign_id => 1},
+    {:user_id => 3, :campaign_id => 1},
+    {:user_id => 4, :campaign_id => 1},
+    {:user_id => 5, :campaign_id => 1},
+    {:user_id => 1, :campaign_id => 2},
+    {:user_id => 1, :campaign_id => 3},
+    {:user_id => 2, :campaign_id => 2},
+    {:user_id => 2, :campaign_id => 4},
+    {:user_id => 2, :campaign_id => 5},
+    
 ]
 
-more_characters.each do |character|
-    Character.create!(character)
+more_user_campaigns.each do |user_campaign|
+    UserCampaign.create!(user_campaign)
     end
 
 =begin
