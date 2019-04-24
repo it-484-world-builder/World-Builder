@@ -54,6 +54,25 @@ table#campaigns th, table#campaigns td {
   
 }
 
+table#user_campaigns {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+  //display: inline;
+}
+table#user_campaigns th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#user_campaigns th, table#user_campaigns td {
+  padding: 4px;
+  text-align: center;
+  
+}
+
+
 table#worlds {
   margin: 10px;
   border-collapse: collapse;
