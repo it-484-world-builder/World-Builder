@@ -1,14 +1,13 @@
-%h2 Details about #{@location.name}
+= link_to 'Back to location list', locations_path, :class => 'button'
+
+%h2 #{@location.name}
 
 %ul#details
-  %li
-    Name:
-    = @location.name
   %li
     Created on:
     = @location.created_at.strftime("%B %d, %Y")
 
-%h3 Description:
+%h4 Description:
 
 %div#description= @location.description
 
@@ -20,4 +19,37 @@
 
 %div#player_note= @location.player_note
 
-= link_to 'Back to location list', locations_path, :class => 'button'
+.left.column
+  - if @location.tag_id < 5
+    %table#campaigns
+      %thead
+        %tr
+          %th #{@tags = Tag.find(@location.tag_id + 1).name + " List"}
+      %tbody
+        - if @location.tag_id == 1
+          - @connections.where(:parent_location_id => @location.id).each do |connection|
+            - @countries.where(:id => connection.child_location_id).each do |country|
+              %tr
+                %td= link_to "#{country.name}", location_path(country)
+                
+        - if @location.tag_id == 2
+          - @connections.where(:parent_location_id => @location.id).each do |connection|
+            - @regions.where(:id => connection.child_location_id).each do |region|
+              %tr
+                %td= link_to "#{region.name}", location_path(region)
+        
+        - if @location.tag_id == 3
+          - @connections.where(:parent_location_id => @location.id).each do |connection|
+            - @cities.where(:id => connection.child_location_id).each do |city|
+              %tr
+                %td= link_to "#{city.name}", location_path(city)
+                
+        - if @location.tag_id == 4
+          - @connections.where(:parent_location_id => @location.id).each do |connection|
+            - @buildings.where(:id => connection.child_location_id).each do |building|
+              %tr
+                %td= link_to "#{building.name}", location_path(building)
+            
+      
+          
+            

@@ -1,24 +1,40 @@
 
-%h2 Details about #{@campaign.name}
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'
+
+%h2 #{@campaign.name}
 
 %ul#details
   %li
     GM:
     = @campaign.user.name
-  
-  %li
-    World ID:
-    = @campaign.world.name
-    
   %li
     Start Date:
     = @campaign.created_at.strftime("%B %d, %Y")
 
-%h3 Active Players:
+%h3 The World of #{@campaign.world.name}
+.right.column
+  %table#campaigns
+    %thead
+      %tr
+        %th Active Players
+    %body
+      - @user_campaigns.where(:campaign_id => @campaign.id).each do |user_campaign|
+        - @users.where(:id => user_campaign.user_id).each do |user|
+          - if user.id == @campaign.user_id
+            %tr
+              %td #{user.name} - (GM)
+          - else
+            %tr
+              %td #{user.name}
 
-%div#description= 'this will show a list of all the characters that are active in a campaign aswell as their respective users'
-%div#description= '--- EXAMPLE ---'
-%div#description= 'Character Name --- Character Description --- User'
-%div#description= 'Varus Oakenheal -- Wood Elf, Ranger -- Jonny'
 
-= link_to 'Back to campaign list', campaigns_path, :class => 'button'
+.left.column
+  %table#campaigns
+    %thead
+      %tr
+        %th Continents
+    %tbody
+      - @continents.where(:world_id => @campaign.world_id).each do |continent|
+        %tr
+          %td= link_to "#{continent.name}", location_path(continent)
+          %end

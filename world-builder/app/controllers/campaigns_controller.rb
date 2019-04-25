@@ -9,6 +9,10 @@ class CampaignsController < ApplicationController
         #@userCampaigns = Campaign.where("user_id = User.current_user.id")
     end
     def show
+        @users = User.all
+        @locations = Location.all
+        @continents = Location.where(tag_id: 1)
+        @user_campaigns = UserCampaign.all
         id = params[:id] # retrieve movie ID from URI route
         @campaign = Campaign.find(id) # look up movie by unique ID
         # will render app/views/movies/show.html.haml by default

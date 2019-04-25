@@ -13,6 +13,9 @@
   
   = label :npc, :player_note, 'Player Note'
   = text_field :npc, :player_note
+  
+  = label :npc, :location_id, 'Select a location for your NPC'
+  = collection_select(:npc, :location_name, Location.all, :name, :name, prompt: true)
 
   = submit_tag 'Save Changes'
 = link_to 'Back to NPC list', npcs_path, :class => 'button'
