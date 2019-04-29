@@ -1,12 +1,18 @@
 /* Simple CSS styling for RottenPotatoes app */
 /* Add these lines to app/assets/stylesheets/application.css */
 html, body {
-  margin: 0;
   padding: 0;
   background: White;
   color: DarkSlateGrey;
   font-family: Trebuchet MS, Helvetica, sans-serif;
   font-size: 10pt;
+}
+html {
+  background-color: lightgray;
+}
+body {
+  width: 1300px;
+  margin: 0 auto;
 }
 div#main {
   margin: 0;
@@ -134,6 +140,20 @@ form label {
 
 p {
   display: inline;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  float: right;
+  margin-right: 80px;
+  margin-bottom: 10px;
+  clear: right;
+}
+.image {
+  float: right;
+  margin-right: 0px;
+  clear: right;
 }
 
 @import "bootstrap-sprockets";

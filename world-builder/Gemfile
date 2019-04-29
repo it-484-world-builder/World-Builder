@@ -28,6 +28,12 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Use paperclip and image_magick for images
+gem 'paperclip', '~> 6.0.0'
+
+gem 'image_magick'
+
+gem 'fileutils'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

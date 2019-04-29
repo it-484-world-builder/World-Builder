@@ -86,7 +86,8 @@ more_locations = [
     end
  
  more_npcs = [
-     { :name => 'Ismark Kolyanovich', :description => 'Young man blonde grey hair and dark robes', :gm_note => 'called ismark the lesser because he lives in the shadow of his father', :player_note =>'Friendlier than most people in the village', :location_id =>5}
+     { :name => 'Ismark Kolyanovich', :description => 'Young man blonde grey hair and dark robes', :gm_note => 'called ismark the lesser because he lives in the shadow of his father', :player_note =>'Friendlier than most people in the village', :location_id =>5},
+     { :name => 'Shopkeeper'}
      ]
      
 more_npcs.each do |npc|

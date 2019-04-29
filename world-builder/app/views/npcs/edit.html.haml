@@ -1,6 +1,8 @@
 %h2 Edit #{@npc.name}
 
 = form_tag npc_path(@npc), :method => :put do
+  = image_tag @npc.image_file_path + @npc.image_file_name
+  = file_field :npc, :image_file_name, :class => "image"
 
   = label :npc, :name, 'Name'
   = text_field :npc, :name
