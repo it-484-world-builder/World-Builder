@@ -5,6 +5,8 @@ class WorldsController < ApplicationController
         @worlds = World.all
     end
     def show
+        @locations = Location.all
+        
         id = params[:id] # retrieve movie ID from URI route
         @world = World.find(id) # look up movie by unique ID
         # will render app/views/movies/show.html.haml by default

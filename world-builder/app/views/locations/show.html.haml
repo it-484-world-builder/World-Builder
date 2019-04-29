@@ -18,6 +18,16 @@
 %h4 Player Note:
 
 %div#player_note= @location.player_note
+.left.column
+  %table#worlds
+    %thead
+      %tr
+        %th My World
+    %tbody
+      -@worlds.where(:id => @location.world_id).each do |world|
+        %tr
+          %td= link_to "#{world.name}", world_path(world)
+
 
 .left.column
   - if @location.tag_id < 5

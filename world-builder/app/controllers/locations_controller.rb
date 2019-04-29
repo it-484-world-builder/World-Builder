@@ -9,6 +9,7 @@ class LocationsController < ApplicationController
         @regions = Location.where(tag_id: 3)
         @cities = Location.where(tag_id: 4)
         @buildings = Location.where(tag_id: 5)
+        @worlds = World.all
         
         id = params[:id] # retrieve movie ID from URI route
         @location = Location.find(id) # look up movie by unique ID
