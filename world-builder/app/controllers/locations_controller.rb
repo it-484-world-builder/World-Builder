@@ -3,6 +3,13 @@ class LocationsController < ApplicationController
         @locations = Location.all
     end
     def show
+        @tags = Tag.all
+        @countries = Location.where(tag_id: 2)
+        @connections = Connection.all
+        @regions = Location.where(tag_id: 3)
+        @cities = Location.where(tag_id: 4)
+        @buildings = Location.where(tag_id: 5)
+        
         id = params[:id] # retrieve movie ID from URI route
         @location = Location.find(id) # look up movie by unique ID
         # will render app/views/movies/show.html.haml by default

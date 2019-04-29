@@ -145,7 +145,7 @@ form label {
   text-decoration: none;
   background-color: #EEEEEE;
   color: #333333;
-  padding: 2px 6px 2px 6px;
+  padding: 2px 15px 2px 15px;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
@@ -154,6 +154,8 @@ form label {
 
 p {
   display: inline;
+  padding: 30px 15px 5px 15px;
+  
 }
 
 .left.column {
@@ -169,5 +171,12 @@ p {
   padding: 10px;
   height: 300px;
 }
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
