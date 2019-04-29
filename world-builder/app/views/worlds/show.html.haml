@@ -20,4 +20,12 @@
 
 %div#character_note= @world.character_note
 
+.left.column
+  %table#campaigns
+    -@locations.where(:world_id => @world.id).each do |location|
+      %tr
+        %td= link_to "#{location.name}", location_path(location) 
+
+
+
 = link_to 'Back to world list', worlds_path, :class => 'button'
