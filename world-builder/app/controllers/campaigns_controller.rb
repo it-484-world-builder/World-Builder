@@ -12,6 +12,7 @@ class CampaignsController < ApplicationController
         @users = User.all
         @locations = Location.all
         @continents = Location.where(tag_id: 1)
+        @hcontinents = Location.where(tag_id: 1, hidden:false)
         @user_campaigns = UserCampaign.all
         id = params[:id] # retrieve movie ID from URI route
         @campaign = Campaign.find(id) # look up movie by unique ID

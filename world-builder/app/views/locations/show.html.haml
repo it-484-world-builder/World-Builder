@@ -37,7 +37,7 @@
               - @countries.where(:id => connection.child_location_id).each do |country|
                 - if country.hidden == true
                   %tr
-                    %td= link_to "#{country.name} - hidden ", location_path(country, gm: @gm)
+                    %td= link_to "#{country.name} - (hidden to players)", location_path(country, gm: @gm)
                 - else
                   %tr
                     %td= link_to "#{country.name}", location_path(country, gm: @gm)
@@ -45,20 +45,32 @@
           - if @location.tag_id == 2
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @regions.where(:id => connection.child_location_id).each do |region|
-                %tr
-                  %td= link_to "#{region.name}", location_path(region, gm: @gm)
+                - if region.hidden == true
+                  %tr
+                    %td= link_to "#{region.name} - (hidden to players)", location_path(region, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{region.name}", location_path(country, gm: @gm)
           
           - if @location.tag_id == 3
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @cities.where(:id => connection.child_location_id).each do |city|
-                %tr
-                  %td= link_to "#{city.name}", location_path(city, gm: @gm)
+                - if city.hidden == true
+                  %tr
+                    %td= link_to "#{city.name} - (hidden to players)", location_path(city, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{city.name}", location_path(country, gm: @gm)
                   
           - if @location.tag_id == 4
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @buildings.where(:id => connection.child_location_id).each do |building|
-                %tr
-                  %td= link_to "#{building.name}", location_path(building, gm: @gm)
+                - if building.hidden == true
+                  %tr
+                    %td= link_to "#{building.name} - (hidden to players)", location_path(building, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{building.name}", location_path(country, gm: @gm)
 
 - else
   .left.column
