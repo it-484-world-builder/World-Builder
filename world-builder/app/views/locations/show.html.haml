@@ -50,7 +50,7 @@
                     %td= link_to "#{region.name} - (hidden to players)", location_path(region, gm: @gm)
                 - else
                   %tr
-                    %td= link_to "#{region.name}", location_path(country, gm: @gm)
+                    %td= link_to "#{region.name}", location_path(region, gm: @gm)
           
           - if @location.tag_id == 3
             - @connections.where(:parent_location_id => @location.id).each do |connection|
@@ -60,7 +60,7 @@
                     %td= link_to "#{city.name} - (hidden to players)", location_path(city, gm: @gm)
                 - else
                   %tr
-                    %td= link_to "#{city.name}", location_path(country, gm: @gm)
+                    %td= link_to "#{city.name}", location_path(city, gm: @gm)
                   
           - if @location.tag_id == 4
             - @connections.where(:parent_location_id => @location.id).each do |connection|
@@ -70,7 +70,7 @@
                     %td= link_to "#{building.name} - (hidden to players)", location_path(building, gm: @gm)
                 - else
                   %tr
-                    %td= link_to "#{building.name}", location_path(country, gm: @gm)
+                    %td= link_to "#{building.name}", location_path(building, gm: @gm)
 
 - else
   .left.column
