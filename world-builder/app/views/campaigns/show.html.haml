@@ -36,5 +36,4 @@
     %tbody
       - @continents.where(:world_id => @campaign.world_id).each do |continent|
         %tr
-          %td= link_to "#{continent.name}", location_path(continent)
-          %end
+          %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id)
