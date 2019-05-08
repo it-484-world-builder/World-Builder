@@ -2,6 +2,15 @@
 
 = form_tag locations_path, :method => :post do
 
+  = label :location, :world_id, 'Select a World for your Campaign'
+  = collection_select(:location, :world_name, World.all, :name, :name, prompt: true)
+  
+  = label :location, :tag_id, 'Location Type'
+  = collection_select(:location, :tag_name, Tag.all, :name, :name, prompt:true)
+  
+  = label :location, :name, 'This Location is Located Within:'
+  = collection_select(:connection, :parent_location_id,Location.all,:name,:name, prompt:true)
+
   = label :location, :name, 'Name'
   = text_field :location, :name
 
@@ -11,8 +20,7 @@
   = label :location, :gm_note, 'GM Note'
   = text_field :location, :gm_note
   
-  = label :location, :world_id, 'Select a World for your Location'
-  = collection_select(:location, :world_id,World.all,:name,:name, prompt:true)
+  
 
   = submit_tag 'Save Changes'
 = link_to 'Back to location list', locations_path, :class => 'button'

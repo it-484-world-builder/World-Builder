@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20190419052723) do
     t.text     "description"
     t.text     "gm_note"
     t.text     "player_note"
+    t.boolean  "hidden"
     t.integer  "world_id"
     t.integer  "tag_id"
     t.datetime "created_at"

@@ -9,11 +9,17 @@ class LocationsController < ApplicationController
         @regions = Location.where(tag_id: 3)
         @cities = Location.where(tag_id: 4)
         @buildings = Location.where(tag_id: 5)
-        @worlds = World.all
+        
+        @hcountries = Location.where(tag_id: 2, hidden:false)
+        @hregions = Location.where(tag_id: 3, hidden:false)
+        @hcities = Location.where(tag_id: 4, hidden:false)
+        @hbuildings = Location.where(tag_id: 5, hidden:false)
         
         id = params[:id] # retrieve movie ID from URI route
         @location = Location.find(id) # look up movie by unique ID
         # will render app/views/movies/show.html.haml by default
+        gm = params[:gm]
+        @gm = gm
     end
     
     def new
@@ -22,12 +28,12 @@ class LocationsController < ApplicationController
     end 
 
     def location_params
-        params.require(:location).permit(:name,:description,:world_name,:gm_note,:character_note)
+        params.require(:location).permit(:name,:description,:world_name,:tag_id,:gm_note,:character_note,:hidden)
     end
 
     def create
         params.require(:location)
-        params[:location].permit(:name,:description,:world_id)
+        params[:location].permit(:name,:description,:world_id,:tag_id)
         # shortcut: params.require(:movie).permit(:title,:rating,:release_date)
         # rest of code...
         @location = Location.create!(location_params)

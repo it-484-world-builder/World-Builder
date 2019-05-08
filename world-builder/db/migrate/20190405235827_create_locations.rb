@@ -5,6 +5,7 @@ class CreateLocations < ActiveRecord::Migration
       t.text 'description'
       t.text 'gm_note'
       t.text 'player_note'
+      t.boolean 'hidden'
       t.references 'world'
       t.references 'tag'
       t.timestamps

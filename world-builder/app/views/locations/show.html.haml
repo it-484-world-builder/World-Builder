@@ -1,5 +1,9 @@
 = link_to 'Back to location list', locations_path, :class => 'button'
 
+- if current_user.id == @gm.to_i
+  %p
+    = link_to 'Edit Location Details', edit_location_path, :class => "button"
+
 %h2 #{@location.name}
 
 %ul#details
@@ -18,47 +22,87 @@
 %h4 Player Note:
 
 %div#player_note= @location.player_note
-.left.column
-  %table#worlds
-    %thead
-      %tr
-        %th My World
-    %tbody
-      -@worlds.where(:id => @location.world_id).each do |world|
-        %tr
-          %td= link_to "#{world.name}", world_path(world)
 
 
-.left.column
-  - if @location.tag_id < 5
-    %table#campaigns
-      %thead
-        %tr
-          %th #{@tags = Tag.find(@location.tag_id + 1).name + " List"}
-      %tbody
-        - if @location.tag_id == 1
-          - @connections.where(:parent_location_id => @location.id).each do |connection|
-            - @countries.where(:id => connection.child_location_id).each do |country|
-              %tr
-                %td= link_to "#{country.name}", location_path(country)
-                
-        - if @location.tag_id == 2
-          - @connections.where(:parent_location_id => @location.id).each do |connection|
-            - @regions.where(:id => connection.child_location_id).each do |region|
-              %tr
-                %td= link_to "#{region.name}", location_path(region)
-        
-        - if @location.tag_id == 3
-          - @connections.where(:parent_location_id => @location.id).each do |connection|
-            - @cities.where(:id => connection.child_location_id).each do |city|
-              %tr
-                %td= link_to "#{city.name}", location_path(city)
-                
-        - if @location.tag_id == 4
-          - @connections.where(:parent_location_id => @location.id).each do |connection|
-            - @buildings.where(:id => connection.child_location_id).each do |building|
-              %tr
-                %td= link_to "#{building.name}", location_path(building)
+- if current_user.id == @gm.to_i
+  .left.column
+    - if @location.tag_id < 5
+      %table#campaigns
+        %thead
+          %tr
+            %th #{@tags = Tag.find(@location.tag_id + 1).name + " List"}
+        %tbody
+          - if @location.tag_id == 1
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @countries.where(:id => connection.child_location_id).each do |country|
+                - if country.hidden == true
+                  %tr
+                    %td= link_to "#{country.name} - (hidden to players)", location_path(country, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{country.name}", location_path(country, gm: @gm)
+                  
+          - if @location.tag_id == 2
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @regions.where(:id => connection.child_location_id).each do |region|
+                - if region.hidden == true
+                  %tr
+                    %td= link_to "#{region.name} - (hidden to players)", location_path(region, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{region.name}", location_path(region, gm: @gm)
+          
+          - if @location.tag_id == 3
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @cities.where(:id => connection.child_location_id).each do |city|
+                - if city.hidden == true
+                  %tr
+                    %td= link_to "#{city.name} - (hidden to players)", location_path(city, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{city.name}", location_path(city, gm: @gm)
+                  
+          - if @location.tag_id == 4
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @buildings.where(:id => connection.child_location_id).each do |building|
+                - if building.hidden == true
+                  %tr
+                    %td= link_to "#{building.name} - (hidden to players)", location_path(building, gm: @gm)
+                - else
+                  %tr
+                    %td= link_to "#{building.name}", location_path(building, gm: @gm)
+
+- else
+  .left.column
+    - if @location.tag_id < 5
+      %table#campaigns
+        %thead
+          %tr
+            %th #{@tags = Tag.find(@location.tag_id + 1).name + " List"}
+        %tbody
+          - if @location.tag_id == 1
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @hcountries.where(:id => connection.child_location_id).each do |country|
+                %tr
+                  %td= link_to "#{country.name}", location_path(country)
+                  
+          - if @location.tag_id == 2
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @hregions.where(:id => connection.child_location_id).each do |region|
+                %tr
+                  %td= link_to "#{region.name}", location_path(region)
+          
+          - if @location.tag_id == 3
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @hcities.where(:id => connection.child_location_id).each do |city|
+                %tr
+                  %td= link_to "#{city.name}", location_path(city)
+                  
+          - if @location.tag_id == 4
+            - @connections.where(:parent_location_id => @location.id).each do |connection|
+              - @hbuildings.where(:id => connection.child_location_id).each do |building|
+                %tr
+                  %td= link_to "#{building.name}", location_path(building)
             
       
           

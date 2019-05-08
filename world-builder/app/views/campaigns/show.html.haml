@@ -27,14 +27,28 @@
             %tr
               %td #{user.name}
 
-
-.left.column
-  %table#campaigns
-    %thead
-      %tr
-        %th Continents
-    %tbody
-      - @continents.where(:world_id => @campaign.world_id).each do |continent|
+- if current_user.id == @campaign.user_id
+  .left.column
+    %table#campaigns
+      %thead
         %tr
-          %td= link_to "#{continent.name}", location_path(continent)
-          %end
+          %th Continents
+      %tbody
+        - @continents.where(:world_id => @campaign.world_id).each do |continent|
+          -if continent.hidden == true
+            %tr
+              %td= link_to "#{continent.name} - (hidden to players)", location_path(continent, gm: @campaign.user_id)
+          - else
+            %tr
+              %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id)
+
+- else 
+  .left.column
+    %table#campaigns
+      %thead
+        %tr
+          %th Continents
+      %tbody
+        - @hcontinents.where(:world_id => @campaign.world_id).each do |continent|
+          %tr
+            %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id)

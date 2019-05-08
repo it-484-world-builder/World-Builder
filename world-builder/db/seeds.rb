@@ -84,11 +84,19 @@ more_tags.each do |tag|
     end
 
 more_locations = [
-    { :name =>'Hidden Contient', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4 , :tag_id => 1},
-    { :name =>'Hidden Country', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2},
-    { :name =>'Barovia', :description => 'The land is surrounded by mist', :gm_note => 'This land is cursed because of Strhad ', :player_note => 'Place is scary', :world_id => 4 , :tag_id => 3},
-    { :name =>'Village of Barovia', :description => 'Small village of people', :gm_note => 'People are always gloomy and there is a haunted house', :player_note => 'Place is gloomy feeling', :world_id => 4  , :tag_id => 4},
-    { :name =>'Blood of the Vine Tavern', :description => 'Blood of the Vine Tavern a sign outside claims to be this location', :gm_note => 'three people work here', :player_note => 'There is a fire place inside', :world_id => 4  , :tag_id => 5}
+    { :name =>'Hidden Contient', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4 , :tag_id => 1,:hidden => false},
+    { :name =>'Hidden Country Main', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => false},
+    { :name =>'Hidden Country2', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => true},
+    { :name =>'Hidden Country3', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => false},
+    { :name =>'Barovia main', :description => 'The land is surrounded by mist', :gm_note => 'This land is cursed because of Strhad ', :player_note => 'Place is scary', :world_id => 4 , :tag_id => 3,:hidden => false},
+    { :name =>'Barovia2', :description => 'The land is surrounded by mist', :gm_note => 'This land is cursed because of Strhad ', :player_note => 'Place is scary', :world_id => 4 , :tag_id => 3,:hidden => true},
+    { :name =>'Barovia3', :description => 'The land is surrounded by mist', :gm_note => 'This land is cursed because of Strhad ', :player_note => 'Place is scary', :world_id => 4 , :tag_id => 3,:hidden => true},
+    { :name =>'Village of Barovia Main', :description => 'Small village of people', :gm_note => 'People are always gloomy and there is a haunted house', :player_note => 'Place is gloomy feeling', :world_id => 4  , :tag_id => 4, :hidden => false},
+    { :name =>'Village of Barovia2', :description => 'Small village of people', :gm_note => 'People are always gloomy and there is a haunted house', :player_note => 'Place is gloomy feeling', :world_id => 4  , :tag_id => 4, :hidden => true},
+    { :name =>'Village of Barovia3', :description => 'Small village of people', :gm_note => 'People are always gloomy and there is a haunted house', :player_note => 'Place is gloomy feeling', :world_id => 4  , :tag_id => 4, :hidden => false},
+    { :name =>'Blood of the Vine Tavern1', :description => 'Blood of the Vine Tavern a sign outside claims to be this location', :gm_note => 'three people work here', :player_note => 'There is a fire place inside', :world_id => 4  , :tag_id => 5,:hidden => false},
+    { :name =>'Blood of the Vine Tavern2', :description => 'Blood of the Vine Tavern a sign outside claims to be this location', :gm_note => 'three people work here', :player_note => 'There is a fire place inside', :world_id => 4  , :tag_id => 5,:hidden => false},
+    { :name =>'Blood of the Vine Tavern3', :description => 'Blood of the Vine Tavern a sign outside claims to be this location', :gm_note => 'three people work here', :player_note => 'There is a fire place inside', :world_id => 4  , :tag_id => 5,:hidden => false}
     ]
  
  more_locations.each do |location|
@@ -106,9 +114,20 @@ more_npcs.each do |npc|
 
 more_connections = [
     { :parent_location_id => 1 , :child_location_id => 2},
-    { :parent_location_id => 2 , :child_location_id => 3},
-    { :parent_location_id => 3 , :child_location_id => 4},
-    { :parent_location_id => 4 , :child_location_id => 5}	
+    { :parent_location_id => 1 , :child_location_id => 3},
+    { :parent_location_id => 1 , :child_location_id => 4},
+    
+    { :parent_location_id => 2 , :child_location_id => 5},
+    { :parent_location_id => 2 , :child_location_id => 6},
+    { :parent_location_id => 2 , :child_location_id => 7},
+    
+    { :parent_location_id => 5 , :child_location_id => 8},
+    { :parent_location_id => 5 , :child_location_id => 9},
+    { :parent_location_id => 5 , :child_location_id => 10},
+    
+    { :parent_location_id => 8 , :child_location_id => 11},
+    { :parent_location_id => 8 , :child_location_id => 12},
+    { :parent_location_id => 8 , :child_location_id => 13}
     ]
     
 more_connections.each do |connection|
