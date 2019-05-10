@@ -140,3 +140,14 @@
           -@npcs.where(:location_id => @location.id).each do |npc|
             %tr
               %td= link_to "#{npc.name}", npc_path(npc)
+      
+- else
+  .left.column
+    %table#campaigns
+      %thead
+        %tr
+          %th NPCs
+      %tbody
+        -@npcs.where(:location_id => @location.id).each do |npc|
+          %tr
+            %td= link_to "#{npc.name}", npc_path(npc)
