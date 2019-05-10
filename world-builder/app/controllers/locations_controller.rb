@@ -9,6 +9,10 @@ class LocationsController < ApplicationController
         @regions = Location.where(tag_id: 3)
         @cities = Location.where(tag_id: 4)
         @buildings = Location.where(tag_id: 5)
+        @worlds = World.all
+        @npcs = Npc.all
+        @locations = Location.all
+        
         
         @hcountries = Location.where(tag_id: 2, hidden:false)
         @hregions = Location.where(tag_id: 3, hidden:false)
@@ -20,6 +24,17 @@ class LocationsController < ApplicationController
         # will render app/views/movies/show.html.haml by default
         gm = params[:gm]
         @gm = gm
+        
+        campaign_id = params[:campaign_id]
+        @campaign = Campaign.find(campaign_id)
+        @campaign_id = campaign_id
+        
+        if @location.tag_id > 1
+            @connections.where(:child_location_id => @location.id).each do |connection|
+                @parent_location_id = connection.parent_location_id
+                @parent_location = Location.find(@parent_location_id)
+            end
+        end
     end
     
     def new
@@ -28,7 +43,7 @@ class LocationsController < ApplicationController
     end 
 
     def location_params
-        params.require(:location).permit(:name,:description,:world_name,:tag_id,:gm_note,:character_note,:hidden)
+        params.require(:location).permit(:name,:description,:world_name,:tag_id,:gm_note,:character_note,:hidden,:campaign_id)
     end
 
     def create
@@ -43,13 +58,15 @@ class LocationsController < ApplicationController
     
     def edit
         @location = Location.find params[:id]
+        @gm = params[:gm]
+        @campaign_id = params[:campaign_id]
     end
 
     def update
         @location = Location.find params[:id]
         @location.update_attributes!(location_params)
         flash[:notice] = "#{@location.name} was successfully updated."
-        redirect_to location_path(@location)
+        redirect_to location_path(@location.id, gm: @gm, campaign_id: @campaign_id)
     end
     
     def destroy

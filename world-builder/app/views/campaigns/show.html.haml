@@ -37,10 +37,10 @@
         - @continents.where(:world_id => @campaign.world_id).each do |continent|
           -if continent.hidden == true
             %tr
-              %td= link_to "#{continent.name} - (hidden to players)", location_path(continent, gm: @campaign.user_id)
+              %td= link_to "#{continent.name} - (hidden to players)", location_path(continent, gm: @campaign.user_id, campaign_id: @campaign.id)
           - else
             %tr
-              %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id)
+              %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id, campaign_id: @campaign.id)
 
 - else 
   .left.column
@@ -51,4 +51,4 @@
       %tbody
         - @hcontinents.where(:world_id => @campaign.world_id).each do |continent|
           %tr
-            %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id)
+            %td= link_to "#{continent.name}", location_path(continent, gm: @campaign.user_id, campaign_id: @campaign.id)

@@ -1,10 +1,16 @@
-= link_to 'Back to location list', locations_path, :class => 'button'
+- if @location.tag_id == 1
+  = link_to "Back to #{@campaign.name}", campaign_path(@campaign_id), :class => 'button'
+- else
+  = link_to "Back to #{@parent_location.name}", location_path(@parent_location_id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
+  
 
 - if current_user.id == @gm.to_i
   %p
-    = link_to 'Edit Location Details', edit_location_path, :class => "button"
+    = link_to 'Edit Location Details', edit_location_path(gm: @gm, campaign_id: @campaign_id), :class => "button"
 
 %h2 #{@location.name}
+
+= image_tag "/images/default_location_image.png"
 
 %ul#details
   %li
@@ -37,40 +43,40 @@
               - @countries.where(:id => connection.child_location_id).each do |country|
                 - if country.hidden == true
                   %tr
-                    %td= link_to "#{country.name} - (hidden to players)", location_path(country, gm: @gm)
+                    %td= link_to "#{country.name} - (hidden to players)", location_path(country, gm: @gm, campaign_id: @campaign_id)
                 - else
                   %tr
-                    %td= link_to "#{country.name}", location_path(country, gm: @gm)
+                    %td= link_to "#{country.name}", location_path(country, gm: @gm, campaign_id: @campaign_id)
                   
           - if @location.tag_id == 2
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @regions.where(:id => connection.child_location_id).each do |region|
                 - if region.hidden == true
                   %tr
-                    %td= link_to "#{region.name} - (hidden to players)", location_path(region, gm: @gm)
+                    %td= link_to "#{region.name} - (hidden to players)", location_path(region, gm: @gm, campaign_id: @campaign_id)
                 - else
                   %tr
-                    %td= link_to "#{region.name}", location_path(region, gm: @gm)
+                    %td= link_to "#{region.name}", location_path(region, gm: @gm, campaign_id: @campaign_id)
           
           - if @location.tag_id == 3
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @cities.where(:id => connection.child_location_id).each do |city|
                 - if city.hidden == true
                   %tr
-                    %td= link_to "#{city.name} - (hidden to players)", location_path(city, gm: @gm)
+                    %td= link_to "#{city.name} - (hidden to players)", location_path(city, gm: @gm, campaign_id: @campaign_id)
                 - else
                   %tr
-                    %td= link_to "#{city.name}", location_path(city, gm: @gm)
+                    %td= link_to "#{city.name}", location_path(city, gm: @gm, campaign_id: @campaign_id)
                   
           - if @location.tag_id == 4
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @buildings.where(:id => connection.child_location_id).each do |building|
                 - if building.hidden == true
                   %tr
-                    %td= link_to "#{building.name} - (hidden to players)", location_path(building, gm: @gm)
+                    %td= link_to "#{building.name} - (hidden to players)", location_path(building, gm: @gm, campaign_id: @campaign_id)
                 - else
                   %tr
-                    %td= link_to "#{building.name}", location_path(building, gm: @gm)
+                    %td= link_to "#{building.name}", location_path(building, gm: @gm, campaign_id: @campaign_id)
 
 - else
   .left.column
@@ -84,26 +90,37 @@
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @hcountries.where(:id => connection.child_location_id).each do |country|
                 %tr
-                  %td= link_to "#{country.name}", location_path(country)
+                  %td= link_to "#{country.name}", location_path(country, campaign_id: @campaign_id)
                   
           - if @location.tag_id == 2
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @hregions.where(:id => connection.child_location_id).each do |region|
                 %tr
-                  %td= link_to "#{region.name}", location_path(region)
+                  %td= link_to "#{region.name}", location_path(region, campaign_id: @campaign_id)
           
           - if @location.tag_id == 3
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @hcities.where(:id => connection.child_location_id).each do |city|
                 %tr
-                  %td= link_to "#{city.name}", location_path(city)
+                  %td= link_to "#{city.name}", location_path(city, campaign_id: @campaign_id)
                   
           - if @location.tag_id == 4
             - @connections.where(:parent_location_id => @location.id).each do |connection|
               - @hbuildings.where(:id => connection.child_location_id).each do |building|
                 %tr
-                  %td= link_to "#{building.name}", location_path(building)
+                  %td= link_to "#{building.name}", location_path(building, campaign_id: @campaign_id)
             
+.left.column
+  %table#campaigns
+    %thead
+      %tr
+        %th NPCs
+    %tbody
+      -@npcs.where(:location_id => @location.id).each do |npc|
+        %tr
+          %td= link_to "#{npc.name}", npc_path(npc, gm: @gm, campaign_id: @campaign.id)
+  %p
+  = link_to 'Create New NPC', new_npc_path(gm: @gm, campaign_id: @campaign_id, location_id: @location.id), :class => "button"
       
           
             

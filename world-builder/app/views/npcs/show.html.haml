@@ -1,4 +1,10 @@
+= link_to "Back to #{@location.name}", location_path(@npc.location_id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
+= link_to "Edit", edit_npc_path(@npc, gm: @gm, campaign_id: @campaign_id), :class => 'button'
+= link_to 'Delete', npc_path(@npc, gm: @gm, campaign_id: @campaign_id), :method => :delete, :class => 'button'
+
 %h2 Details about #{@npc.name}
+
+= image_tag "/images/default_npc_image.png"
 
 %ul#details
   %li
@@ -20,6 +26,3 @@
 
 %div#player_note= @npc.player_note
 
-= link_to 'Back to NPC list', npcs_path, :class => 'button'
-= link_to "Edit", edit_npc_path(@npc), :class => 'button'
-= link_to 'Delete', npc_path(@npc), :method => :delete, :class => 'button'
