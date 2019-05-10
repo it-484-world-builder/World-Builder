@@ -1,3 +1,4 @@
+= link_to 'Back to campaign list', campaigns_path, :class => 'button'
 %h1 All Worlds
 
 %table#worlds
@@ -14,4 +15,3 @@
         %td= world.created_at
         %td= link_to "More about #{world.name}", world_path(world)
         %td= link_to "Edit #{world.name}", edit_world_path(world)
-= link_to 'Back to campaign list', campaigns_path, :class => 'button'

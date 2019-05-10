@@ -21,6 +21,8 @@ class ConnectionsController < ApplicationController
         @locationInfo = Location.where(id: location_id)
         
         @connection = Connection.new
+        
+        @users = Users.all
     # default: render 'new' template
     end 
 

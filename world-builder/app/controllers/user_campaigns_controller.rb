@@ -1,4 +1,8 @@
 class UserCampaignsController < ApplicationController
+    def form_params
+        params.require(:week_selection).permit(days:[])
+    end
+    
     def index
         @user_campaigns = UserCampaigns.all
     end
@@ -17,6 +21,8 @@ class UserCampaignsController < ApplicationController
         @campaignInfo = Campaign.where(id: campaign_id)
         
         @user_campaign = UserCampaign.new
+        
+        @users = User.all
     # default: render 'new' template
     end 
 
@@ -30,7 +36,7 @@ class UserCampaignsController < ApplicationController
         # shortcut: params.require(:movie).permit(:title,:rating,:release_date)
         # rest of code...
         @user_campaign = UserCampaign.create!(user_campaign_params)
-        flash[:notice] = "#{:user_name.to_s} was successfully added."
+        flash[:notice] = "Player was successfully added."
         redirect_to campaigns_path
     end
     
