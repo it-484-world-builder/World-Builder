@@ -1,8 +1,11 @@
-- if @location.tag_id == 1
-  = link_to "Back to #{@campaign.name}", campaign_path(@campaign_id), :class => 'button'
+- if params.has_key?(:campaign_id) == true
+  - if @location.tag_id == 1
+    = link_to "Back to #{@campaign.name}", campaign_path(@campaign_id), :class => 'button'
+  - else
+    = link_to "Back to #{@parent_location.name}", location_path(@parent_location_id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
 - else
-  = link_to "Back to #{@parent_location.name}", location_path(@parent_location_id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
-  
+  = link_to "back to Location List", locations_path, :class => 'button'
+  = link_to 'Add Connection', new_connection_path(location: @location), :class => "button"
 
 - if current_user.id == @gm.to_i
   %p
@@ -28,7 +31,6 @@
 %h4 Player Note:
 
 %div#player_note= @location.player_note
-
 
 - if current_user.id == @gm.to_i
   .left.column
@@ -109,19 +111,43 @@
               - @hbuildings.where(:id => connection.child_location_id).each do |building|
                 %tr
                   %td= link_to "#{building.name}", location_path(building, campaign_id: @campaign_id)
-            
-.left.column
-  %table#campaigns
-    %thead
-      %tr
-        %th NPCs
-    %tbody
-      -@npcs.where(:location_id => @location.id).each do |npc|
-        %tr
-          %td= link_to "#{npc.name}", npc_path(npc, gm: @gm, campaign_id: @campaign.id)
+
+- if params.has_key?(:campaign_id) == true
   - if current_user.id == @gm.to_i
-    %p
-    = link_to 'Create New NPC', new_npc_path(gm: @gm, campaign_id: @campaign_id, location_id: @location.id), :class => "button"
+    .left.column
+      %table#campaigns
+        %thead
+          %tr
+            %th NPCs
+            %th Edit NPC
+        %tbody
+          -@npcs.where(:location_id => @location.id).each do |npc|
+            %tr
+              %td= link_to "#{npc.name}", npc_path(npc, gm: @gm, campaign_id: @campaign.id)
+              %td= link_to "Edit", edit_npc_path(npc, gm: @gm, campaign_id: @campaign.id)
       
-          
-            
+      %p
+        = link_to 'Create New NPC', new_npc_path(gm: @gm, campaign_id: @campaign_id, location_id: @location.id), :class => "button"
+      
+      
+  - else
+    .left.column
+      %table#campaigns
+        %thead
+          %tr
+            %th NPCs
+        %tbody
+          -@npcs.where(:location_id => @location.id).each do |npc|
+            %tr
+              %td= link_to "#{npc.name}", npc_path(npc)
+      
+- else
+  .left.column
+    %table#campaigns
+      %thead
+        %tr
+          %th NPCs
+      %tbody
+        -@npcs.where(:location_id => @location.id).each do |npc|
+          %tr
+            %td= link_to "#{npc.name}", npc_path(npc)

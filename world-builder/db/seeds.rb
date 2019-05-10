@@ -72,7 +72,7 @@ end
 =end
     
 more_tags = [
-    {:name =>'Contient', :rank =>1},
+    {:name =>'Continent', :rank =>1},
     {:name =>'Country', :rank =>2},
     {:name =>'Region', :rank =>3},
     {:name =>'City', :rank =>4},
@@ -84,7 +84,7 @@ more_tags.each do |tag|
     end
 
 more_locations = [
-    { :name =>'Hidden Contient', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4 , :tag_id => 1,:hidden => false},
+    { :name =>'Hidden Continent', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the continent, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4 , :tag_id => 1,:hidden => false},
     { :name =>'Hidden Country Main', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => false},
     { :name =>'Hidden Country2', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => true},
     { :name =>'Hidden Country3', :description => 'The location of this place is unknown', :gm_note => 'Was once a part of the contient, but disapeared when cursed', :player_note => 'Location is not know', :world_id => 4  , :tag_id => 2,:hidden => false},

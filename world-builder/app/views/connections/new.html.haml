@@ -1,0 +1,16 @@
+%h2 Create New Connection
+- @locationInfo.each do |location|
+    = form_tag connections_path, :method => :post do
+        
+        = label :connection, :parent_location_id, "#{location.name} is located in"
+        = collection_select(:connection, :parent_location_name, Location.where(tag_id: location.tag_id.to_i - 1), :name, :name, prompt: true)
+        
+        <br><br>
+        = label :connection, :child_location_id, "Select '#{location.name}' to set as child"
+        = collection_select(:connection, :child_location_name, Location.where(id: location.id), :name, :name, prompt: true)
+        
+        <br> <br>
+        = submit_tag 'Save Changes'
+    <br>
+    = link_to 'Back to connection list', connections_path, :class => 'button'
+    

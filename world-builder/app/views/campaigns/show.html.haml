@@ -2,7 +2,6 @@
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'
 
 %h2 #{@campaign.name}
-
 %ul#details
   %li
     GM:
@@ -10,22 +9,45 @@
   %li
     Start Date:
     = @campaign.created_at.strftime("%B %d, %Y")
+.parent
+  %h3 The World of #{@campaign.world.name}
+- if current_user.id == @campaign.user_id
+  .parent
+    %p
+      = link_to 'View Locations', locations_path(world: @campaign.world_id, campaign_id: @campaign.id), :class => "button"
 
-%h3 The World of #{@campaign.world.name}
-.right.column
-  %table#campaigns
-    %thead
-      %tr
-        %th Active Players
-    %body
-      - @user_campaigns.where(:campaign_id => @campaign.id).each do |user_campaign|
-        - @users.where(:id => user_campaign.user_id).each do |user|
-          - if user.id == @campaign.user_id
-            %tr
-              %td #{user.name} - (GM)
-          - else
-            %tr
-              %td #{user.name}
+- if current_user.id == @campaign.user_id
+  .right.column
+    %table#campaigns
+      %thead
+        %tr
+          %th Active Players
+      %body
+        - @user_campaigns.where(:campaign_id => @campaign.id).each do |user_campaign|
+          - @users.where(:id => user_campaign.user_id).each do |user|
+            - if user.id == @campaign.user_id
+              %tr
+                %td #{user.name} - (GM)
+            - else
+              %tr
+                %td #{user.name}
+    .parent
+      = link_to 'Add Player', new_user_campaign_path(campaign_id: @campaign), :class => "button"
+- else
+  .right.column
+    %table#campaigns
+      %thead
+        %tr
+          %th Active Players
+      %body
+        - @user_campaigns.where(:campaign_id => @campaign.id).each do |user_campaign|
+          - @users.where(:id => user_campaign.user_id).each do |user|
+            - if user.id == @campaign.user_id
+              %tr
+                %td #{user.name} - (GM)
+            - else
+              %tr
+                %td #{user.name}
 
 - if current_user.id == @campaign.user_id
   .left.column

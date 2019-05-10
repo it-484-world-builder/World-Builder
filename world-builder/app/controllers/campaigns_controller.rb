@@ -6,6 +6,10 @@ class CampaignsController < ApplicationController
         @campaigns = Campaign.all
         @user_campaigns = UserCampaign.all
         
+        if params.has_key?(:world) == true
+            world = params[:world]
+            @world = world
+        end
         #@userCampaigns = Campaign.where("user_id = User.current_user.id")
     end
     def show

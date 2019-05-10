@@ -59,16 +59,16 @@ Rails.application.routes.draw do
   get "campaigns/index"
   root "campaigns#index"
 
-  
+  resources :connections
   resources :user_campaigns
   resources :campaigns
   resources :npcs
   resources :users
   resources :worlds
-  # root :to => redirect("campaigns#index")
   resources :tags
   resources :locations
   #root :to => redirect('/campaigns')
+
 
   
   
