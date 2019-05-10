@@ -1,5 +1,6 @@
 
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'
+= link_to "Edit #{@campaign.name}", edit_campaign_path(@campaign.id), :class => 'button'
 
 %h2 #{@campaign.name}
 %ul#details
