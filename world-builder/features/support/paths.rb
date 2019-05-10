@@ -15,6 +15,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+      
+    when /^the campaign home page/
+      '/campaigns/index'
+      
+    when /^the Create New World page/
+      '/worlds/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

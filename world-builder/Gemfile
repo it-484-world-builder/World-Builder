@@ -9,6 +9,7 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'launchy'
 end
 # Use Haml for templates
 gem 'haml'
