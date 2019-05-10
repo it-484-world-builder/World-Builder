@@ -1,5 +1,7 @@
 %h2 Create New NPC
 
+= image_tag "/images/default_npc_image.png"
+
 = form_tag npcs_path, :method => :post do
 
   = label :npc, :name, 'Name'
@@ -15,7 +17,10 @@
   = text_field :npc, :player_note
   
   = label :npc, :location_id, 'Select a location for your NPC'
-  = collection_select(:npc, :location_name, Location.all, :name, :name, prompt: true)
+  = collection_select(:npc, :location_id, Location.all, :id, :name, prompt: true, selected: @location_id)
+  
+  = hidden_field_tag(:gm, params["gm"])
+  = hidden_field_tag(:campaign_id, params["campaign_id"])
 
   = submit_tag 'Save Changes'
-= link_to 'Back to NPC list', npcs_path, :class => 'button'
+= link_to "Back to #{@location.name}", location_path(@location_id, gm: @gm, campaign_id: @campaign_id), :class => 'button'

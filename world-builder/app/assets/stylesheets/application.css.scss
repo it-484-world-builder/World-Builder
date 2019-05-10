@@ -178,5 +178,13 @@ p {
   align-items: center;
 }
 
+img {
+  height: 150px;
+  float: right;
+  margin-right: 80px;
+  margin-bottom: 10px;
+  clear: right;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

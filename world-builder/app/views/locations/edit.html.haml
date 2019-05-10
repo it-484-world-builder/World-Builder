@@ -1,5 +1,7 @@
 %h2 Edit #{@location.name}
 
+= image_tag "/images/default_npc_image.png"
+
 = form_tag location_path(@location), :method => :put do
 
   = label :location, :name, 'Name'
@@ -14,10 +16,10 @@
   = label :location, :world_id, 'Select a World for your Location'
   = collection_select(:location, :world_id,World.all,:name,:name,prompt:true)
   
-  = label :location, :hidden, 'check box if location is stil unknown (hidden)'
+  = label :location, :hidden, 'check box if location is still unknown (hidden)'
   = check_box :location, :hidden
   
 
   
   = submit_tag 'Save Changes'
-= link_to 'Back to campaign list', :class => 'button'
+= link_to "Back to #{@location.name} Details", location_path(@location.id, gm: @gm, campaign_id: @campaign_id), :class => 'button'

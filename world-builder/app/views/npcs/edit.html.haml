@@ -1,5 +1,7 @@
 %h2 Edit #{@npc.name}
 
+= image_tag "/images/default_npc_image.png"
+
 = form_tag npc_path(@npc), :method => :put do
 
   = label :npc, :name, 'Name'
@@ -14,6 +16,9 @@
   = label :npc, :player_note, 'Player Note'
   = text_field :npc, :player_note
   
-  = submit_tag 'Save Changes'
+  = hidden_field_tag(:gm, params["gm"])
+  = hidden_field_tag(:campaign_id, params["campaign_id"])
   
-= link_to "Back to #{@npc.name} Details", npc_path(@npc), :class => 'button'
+  
+  = submit_tag 'Save Changes'
+= link_to "Back to #{@npc.name} Details", npc_path(@npc, gm: @gm, campaign_id: @campaign_id), :class => 'button'
