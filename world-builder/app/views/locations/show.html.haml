@@ -130,13 +130,13 @@
         = link_to 'Create New NPC', new_npc_path(gm: @gm, campaign_id: @campaign_id, location_id: @location.id), :class => "button"
       
       
-- else
-  .left.column
-    %table#campaigns
-      %thead
-        %tr
-          %th NPCs
-      %tbody
-        -@npcs.where(:location_id => @location.id).each do |npc|
+  - else
+    .left.column
+      %table#campaigns
+        %thead
           %tr
-            %td= link_to "#{npc.name}", npc_path(npc)
+            %th NPCs
+        %tbody
+          -@npcs.where(:location_id => @location.id).each do |npc|
+            %tr
+              %td= link_to "#{npc.name}", npc_path(npc)
