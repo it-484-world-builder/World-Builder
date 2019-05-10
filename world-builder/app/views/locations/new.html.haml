@@ -9,9 +9,6 @@
   
   = label :location, :tag_id, 'Location Type'
   = collection_select(:location, :tag_name, Tag.all, :name, :name, prompt:true)
-  
-  = label :location, :name, 'This Location is Located Within:'
-  = collection_select(:connection, :parent_location_id,Location.all,:name,:name, prompt:true)
 
   = label :location, :name, 'Name'
   = text_field :location, :name
@@ -22,7 +19,8 @@
   = label :location, :gm_note, 'GM Note'
   = text_field :location, :gm_note
   
-  
+  = label :location, :hidden, 'check box if location is stil unknown (hidden)'
+  = check_box :location, :hidden
 
   = submit_tag 'Save Changes'
 = link_to 'Back to location list', locations_path, :class => 'button'

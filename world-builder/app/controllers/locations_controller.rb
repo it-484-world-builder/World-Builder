@@ -1,6 +1,23 @@
 class LocationsController < ApplicationController
     def index
-        @locations = Location.all
+        if params.has_key?(:world) == true
+            @wlocations = Location.where(world_id: params[:world].to_i)
+            world_id = params[:world]
+            @world = World.find(world_id)
+            name = @world.name
+            @name = name
+        end
+        
+        if params.has_key?(:campaign_id) == true
+            campaign_id = params[:campaign_id]
+            @campaign = Campaign.find(campaign_id)
+            @campaign_id = campaign_id
+        end
+        
+        else
+            @locations = Location.all
+        
+        
     end
     def show
         @tags = Tag.all
@@ -25,9 +42,11 @@ class LocationsController < ApplicationController
         gm = params[:gm]
         @gm = gm
         
-        campaign_id = params[:campaign_id]
-        @campaign = Campaign.find(campaign_id)
-        @campaign_id = campaign_id
+        if params.has_key?(:campaign_id) == true
+            campaign_id = params[:campaign_id]
+            @campaign = Campaign.find(campaign_id)
+            @campaign_id = campaign_id
+        end
         
         if @location.tag_id > 1
             @connections.where(:child_location_id => @location.id).each do |connection|
@@ -43,12 +62,12 @@ class LocationsController < ApplicationController
     end 
 
     def location_params
-        params.require(:location).permit(:name,:description,:world_name,:tag_id,:gm_note,:character_note,:hidden,:campaign_id)
+        params.require(:location).permit(:name,:description,:world_name,:tag_name,:gm_note,:character_note,:hidden)
     end
 
     def create
         params.require(:location)
-        params[:location].permit(:name,:description,:world_id,:tag_id)
+        params[:location].permit(:name,:description,:world_id,:tag_id,:campaign_id)
         # shortcut: params.require(:movie).permit(:title,:rating,:release_date)
         # rest of code...
         @location = Location.create!(location_params)

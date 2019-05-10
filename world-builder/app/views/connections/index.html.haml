@@ -1,0 +1,14 @@
+%h1 All Connections
+
+%table#locations
+  %thead
+    %tr
+      %th Parent Location ID
+      %th Child Location ID
+  %tbody
+    - @connections.each do |connection|
+      %tr
+        %td= connection.parent_location_id
+        %td= connection.child_location_id
+
+= link_to 'Back to location list', locations_path, :class => 'button'
