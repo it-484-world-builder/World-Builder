@@ -1,0 +1,15 @@
+%h2 Add Player to Campaign
+- @campaignInfo.each do |campaign|
+    = form_tag user_campaigns_path, :method => :post do
+        
+        = label :user_campaign, :user_id, "Add Player to Campaign"
+        = collection_select(:user_campaign, :user_name, User.all, :name, :name, prompt: true)
+        
+        <br><br>
+        = label :user_campaign, :campaign_id, "Select '#{campaign.name}' to set campaign"
+        = collection_select(:user_campaign, :campaign_name, Campaign.where(id: campaign.id), :name, :name, prompt: true)
+        
+        <br> <br>
+        = submit_tag 'Save Changes'
+    <br>
+    = link_to "Back to #{campaign.name}", campaign_path(@campaign_id), :class => 'button'

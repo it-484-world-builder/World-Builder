@@ -13,7 +13,9 @@ class ConnectionsController < ApplicationController
     
     def new
         id = params[:id] # retrieve movie ID from URI route
+        
         location_id = params[:location]
+        
         @location_id = location_id
         
         @locationInfo = Location.where(id: location_id)
