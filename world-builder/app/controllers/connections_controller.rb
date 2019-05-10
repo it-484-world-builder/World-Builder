@@ -22,7 +22,6 @@ class ConnectionsController < ApplicationController
         
         @connection = Connection.new
         
-        @users = Users.all
     # default: render 'new' template
     end 
 
