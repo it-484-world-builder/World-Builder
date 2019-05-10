@@ -9,4 +9,4 @@
     = collection_select(:campaign, :world_name, World.all, :name, :name, prompt: true)
     
     = submit_tag 'Save Changes'
-= link_to 'Back to campaign list', campaigns_path, :class => 'button'
+= link_to "Back to #{@campaign.name} details", campaign_path(@campaign.id), :class => 'button'

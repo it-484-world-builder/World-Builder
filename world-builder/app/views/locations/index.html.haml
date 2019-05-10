@@ -13,14 +13,12 @@
       %tr
         %th Location Name
         %th Date Created
-        %th More Info
         %th Edit Location
     %tbody
       - @wlocations.each do |location|
         %tr
-          %td= location.name
+          %td= link_to "#{location.name}", location_path(location)
           %td= location.created_at
-          %td= link_to "More about #{location.name}", location_path(location)
           %td= link_to "Edit #{location.name}", edit_location_path(location)
 
 - else
@@ -33,14 +31,12 @@
       %tr
         %th Location Name
         %th Date Created
-        %th More Info
         %th Edit Location
     %tbody
       - @locations.each do |location|
         %tr
-          %td= location.name
+          %td= link_to "#{location.name}", location_path(location)
           %td= location.created_at
-          %td= link_to "More about #{location.name}", location_path(location)
           %td= link_to "Edit #{location.name}", edit_location_path(location)
   
   

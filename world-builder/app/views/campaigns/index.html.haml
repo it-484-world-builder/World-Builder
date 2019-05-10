@@ -1,12 +1,9 @@
-
 #content
   .parent
     %p
       = link_to 'Create New Campaign', new_campaign_path, :class => "button"  
     %p
       = link_to 'Create New World', new_world_path, :class => "button"
-    %p
-      = link_to 'View Worlds', worlds_path, :class => "button"
     %p
       = link_to 'View Tags', tags_path, :class => "button"
     %p
@@ -16,14 +13,13 @@
       %thead
         %tr
           %th Your Campaigns
-          %th Edit Campaign Details
       %tbody
         - @campaigns.where(:user_id => current_user.id).each do |campaign|
           %tr
             %td= link_to "#{campaign.name}", campaign_path(campaign)
-            %td= link_to "Edit #{campaign.name}", edit_campaign_path(campaign)
             
     
+
   .left.column
     %table#user_campaigns
       %thead
