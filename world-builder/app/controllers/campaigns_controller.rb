@@ -10,7 +10,6 @@ class CampaignsController < ApplicationController
             world = params[:world]
             @world = world
         end
-        
         #@userCampaigns = Campaign.where("user_id = User.current_user.id")
     end
     def show

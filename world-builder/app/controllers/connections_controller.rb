@@ -9,7 +9,6 @@ class ConnectionsController < ApplicationController
         
         @tags = Tag.all
         @locations = Location.all
-
     end
     
     def new

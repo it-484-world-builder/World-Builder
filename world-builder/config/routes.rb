@@ -65,7 +65,6 @@ Rails.application.routes.draw do
   resources :npcs
   resources :users
   resources :worlds
-  # root :to => redirect("campaigns#index")
   resources :tags
   resources :locations
   #root :to => redirect('/campaigns')

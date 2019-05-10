@@ -20,6 +20,5 @@
   = check_box :location, :hidden
   
 
-  
   = submit_tag 'Save Changes'
 = link_to "Back to #{@location.name} Details", location_path(@location.id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
