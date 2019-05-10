@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 
 
+group :test do
+  gem 'capybara'
+end
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
 # Use Haml for templates
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
