@@ -6,13 +6,10 @@
   = text_field :world, :name
 
   = label :world, :description, 'Description'
-  = text_field :world, :description
+  = text_area :world, :description
  
   = label :world, :gm_note, 'GM Note'
-  = text_field :world, :gm_note
+  = text_area :world, :gm_note
   
-  = label :world, :character_note, 'Character Note'
-  = text_field :world, :character_note
-
   = submit_tag 'Save Changes'
 = link_to 'Back to campaign list', campaigns_path, :class => 'button'

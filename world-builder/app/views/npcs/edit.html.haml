@@ -8,13 +8,13 @@
   = text_field :npc, :name
 
   = label :npc, :description, 'Description'
-  = text_field :npc, :description
+  = text_area :npc, :description
  
   = label :npc, :gm_note, 'GM Note'
-  = text_field :npc, :gm_note
+  = text_area :npc, :gm_note
   
   = label :npc, :player_note, 'Player Note'
-  = text_field :npc, :player_note
+  = text_area :npc, :player_note
   
   = label :npc, :location_id, 'Select a location for your NPC'
   = collection_select(:npc, :location_id, Location.all, :id, :name, prompt: true, selected: @location_id)

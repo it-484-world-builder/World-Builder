@@ -8,10 +8,10 @@
   = text_field :location, :name
 
   = label :location, :description, 'Description'
-  = text_field :location, :description
+  = text_area :location, :description
  
   = label :location, :gm_note, 'GM Note'
-  = text_field :location, :gm_note
+  = text_area :location, :gm_note
   
   = label :location, :world_id, 'Select a World for your Location'
   = collection_select(:location, :world_id,World.all,:name,:name,prompt:true)
@@ -19,6 +19,6 @@
   = label :location, :hidden, 'check box if location is still unknown (hidden)'
   = check_box :location, :hidden
   
-
+  <br><br>
   = submit_tag 'Save Changes'
 = link_to "Back to #{@location.name} Details", location_path(@location.id, gm: @gm, campaign_id: @campaign_id), :class => 'button'
