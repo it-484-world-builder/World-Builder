@@ -1,6 +1,7 @@
 /* Simple CSS styling for RottenPotatoes app */
 /* Add these lines to app/assets/stylesheets/application.css */
-html, body {
+
+.p{
   margin: 0;
   padding: 0;
   background: White;
@@ -8,6 +9,17 @@ html, body {
   font-family: Trebuchet MS, Helvetica, sans-serif;
   font-size: 10pt;
 }
+
+#campaigns {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: DarkSlateGrey;
+  text-align: center;
+  font-family: Trebuchet MS, Helvetica, sans-serif;
+  font-size: 10pt;
+}
+
 div#main {
   margin: 0;
   padding: 0 20px 20px;
@@ -54,6 +66,25 @@ table#campaigns th, table#campaigns td {
   
 }
 
+
+table#locations {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+  //display: inline;
+}
+table#locations th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#locations th, table#campaigns td {
+  padding: 4px;
+  text-align: center;
+  
+}
+
 table#user_campaigns {
   margin: 10px;
   border-collapse: collapse;
@@ -90,6 +121,7 @@ table#worlds th, table#worlds td {
   
 }
 
+
 table#users {
   margin: 10px;
   border-collapse: collapse;
@@ -106,11 +138,29 @@ table#users th, table#users td {
   text-align: center;
   
 }
+
+
+table#tags {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#tags th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#tags th, table#tags td {
+  padding: 4px;
+  text-align: center;
+  
+}
 table#npcs {
   margin: 10px;
   border-collapse: collapse;
-  width: 25%;
-  border: 2px solid black;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 table#npcs th {
   font-weight: bold;
@@ -120,7 +170,6 @@ table#npcs th {
 table#npcs th, table#npcs td {
   padding: 4px;
   text-align: center;
-  border-left: 2px solid black;
 }
 table#npcs tr:nth-child(even) {
   background-color: wheat;
@@ -178,13 +227,28 @@ p {
   align-items: center;
 }
 
-img {
-  height: 150px;
-  float: right;
-  margin-right: 80px;
-  margin-bottom: 10px;
-  clear: right;
-}
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  color: DarkSlateGrey;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 10pt;
+  text-align: center;
+}
+
+ul{
+  list-style-position: inside;
+}
+
+li{
+  list-style-position: inside;
+  text-align: center
+}
+
+#index{
+    text-align: left;
+}
